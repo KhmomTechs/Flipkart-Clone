@@ -1,4 +1,5 @@
 import 'package:flipkartclone/actions_icons/cart_screen.dart';
+import 'package:flipkartclone/drawers_screens/extraplus_screen.dart';
 import 'package:flipkartclone/actions_icons/notification_screen.dart';
 import 'package:flipkartclone/drawer_content1.dart';
 import 'package:flutter/material.dart';
@@ -41,11 +42,14 @@ class _HomePageState extends State<HomePage> {
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            title: Image.asset(
-              "assets/flipkartlogo.png",
-              width: 100.0,
-              color: Colors.blue,
-              colorBlendMode: BlendMode.colorBurn,
+            title: GestureDetector(
+              onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context) => ExtraPlusScreen())),
+              child: Image.asset(
+                "assets/flipkartlogo.png",
+                width: 100.0,
+                color: Colors.blue,
+                colorBlendMode: BlendMode.colorBurn,
+              ),
             ),
             floating: true,
             snap: true,
