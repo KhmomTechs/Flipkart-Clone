@@ -31,11 +31,14 @@ class DrawerContents extends StatefulWidget {
 }
 
 class _DrawerContentsState extends State<DrawerContents> {
-  Widget divider() {
-    return Divider();
+
+ Widget divider() {
+    return Divider(
+      color: Colors.black54,
+    );
   }
 
-  Widget tiles(String title, IconData icons) {
+  Widget tiles(String title, IconData icons, Widget widget) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.06,
       alignment: AlignmentDirectional.topStart,
@@ -49,6 +52,10 @@ class _DrawerContentsState extends State<DrawerContents> {
 //            size: MediaQuery.of(context).size.height * 0.03,
             ),
           ),
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => widget));
+          },
           label: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
@@ -82,281 +89,39 @@ class _DrawerContentsState extends State<DrawerContents> {
                     style: TextStyle(color: Colors.white),
                   ),
                 ))),
-        GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ExtraPlusScreen()));
-            },
-            child: tiles("Flipkart Plus Zone", Icons.add)),
+        tiles("Flipkart Plus Zone", Icons.add, ExtraPlusScreen()),
         divider(),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ElectronicsScreen()));
-          },
-          child: tiles(
-            "Electronics",
-            Icons.smartphone,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => TvAppliancesScreen()));
-          },
-          child: tiles(
-            "TVs & Appliances",
-            Icons.tv,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => FashionScreen()));
-          },
-          child: tiles(
-            "Fashion",
-            Icons.beach_access,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => HomeFurnitureScreen()));
-          },
-          child: tiles(
-            "Home and Furniture",
-            Icons.shop,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ToyBabyScreen()));
-          },
-          child: tiles(
-            "Toys and Baby",
-            Icons.person_add,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => BeautyPersonalScreen()));
-          },
-          child: tiles(
-            "Beauty and Personal care",
-            Icons.label_important,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => SportsBookScreen()));
-          },
-          child: tiles(
-            "Sports,Books and More",
-            Icons.book,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => RefurbishedScreen()));
-          },
-          child: tiles(
-            "Refurbished Products",
-            Icons.report_problem,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => RechargesScreen()));
-          },
-          child: tiles(
-            "Recharges",
-            Icons.account_balance,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => FlightHotelScreen()));
-          },
-          child: tiles(
-            "Flights,Hotels & Bus",
-            Icons.flight_takeoff,
-          ),
-        ),
+        tiles("Electronics", Icons.smartphone, ElectronicsScreen()),
+        tiles("TVs & Appliances", Icons.tv, TvAppliancesScreen()),
+        tiles("Fashion", Icons.beach_access, FashionScreen()),
+        tiles("Home and Furniture", Icons.shop, HomeFurnitureScreen()),
+        tiles("Toys and Baby", Icons.person_add, ToyBabyScreen()),
+        tiles("Beauty and Personal care", Icons.label_important,
+            BeautyPersonalScreen()),
+        tiles("Sports,Books and More", Icons.book, SportsBookScreen()),
+        tiles(
+            "Refurbished Products", Icons.report_problem, RefurbishedScreen()),
+        tiles("Recharges", Icons.account_balance, RechargesScreen()),
+        tiles(
+            "Flights,Hotels & Bus", Icons.flight_takeoff, FlightHotelScreen()),
         divider(),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => OfferZoneScreen()));
-          },
-          child: tiles(
-            "Offer Zone",
-            Icons.panorama_horizontal,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => GameScreen()));
-          },
-          child: tiles(
-            "Game Zone",
-            Icons.gamepad,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => NotificationScreen()));
-          },
-          child: tiles(
-            "Notifications",
-            Icons.notifications,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SellScreen()));
-          },
-          child: tiles(
-            "Sell on Flipkart",
-            Icons.select_all,
-          ),
-        ),
+        tiles("Offer Zone", Icons.panorama_horizontal, OfferZoneScreen()),
+        tiles("Game Zone", Icons.gamepad, GameScreen()),
+        tiles("Notifications", Icons.notifications, NotificationScreen()),
+        tiles("Sell on Flipkart", Icons.select_all, SellScreen()),
         divider(),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => OrderScreen()));
-          },
-          child: tiles(
-            "My Orders",
-            Icons.not_listed_location,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => RewardsScreen()));
-          },
-          child: tiles(
-            "My Rewards",
-            Icons.fast_rewind,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => CartScreen()));
-          },
-          child: tiles(
-            "My Cart",
-            Icons.shopping_cart,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => WishlistScreen()));
-          },
-          child: tiles(
-            "My Wishlist",
-            Icons.wallpaper,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => AccountScreen()));
-          },
-          child: tiles(
-            "My Account",
-            Icons.account_balance,
-          ),
-        ),
+        tiles("My Orders", Icons.not_listed_location, OrderScreen()),
+        tiles("My Rewards", Icons.fast_rewind, RewardsScreen()),
+        tiles("My Cart", Icons.shopping_cart, CartScreen()),
+        tiles("My Wishlist", Icons.wallpaper, WishlistScreen()),
+        tiles("My Account", Icons.account_balance, AccountScreen()),
         divider(),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => NotificationPreferences()));
-          },
-          child: tiles(
-            "Notification Preferences",
-            Icons.notifications,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => GiftScreen()));
-          },
-          child: tiles(
-            "Gift Card",
-            Icons.card_giftcard,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => ChatScreen()));
-          },
-          child: tiles(
-            "My Chats",
-            Icons.chat,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => HelpScreen()));
-          },
-          child: tiles(
-            "Help Centre",
-            Icons.help,
-          ),
-        ),
-        GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LegalScreen()));
-            },
-            child: tiles("Legal", Icons.poll)),
+        tiles("Notification Preferences", Icons.notifications,
+            NotificationPreferences()),
+        tiles("Gift Card", Icons.card_giftcard, GiftScreen()),
+        tiles("My Chats", Icons.chat, ChatScreen()),
+        tiles("Help Centre", Icons.help, HelpScreen()),
+        tiles("Legal", Icons.poll, LegalScreen()),
       ],
     );
   }
