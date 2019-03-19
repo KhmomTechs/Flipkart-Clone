@@ -41,7 +41,7 @@ class _DrawerContentsState extends State<DrawerContents> {
   Widget tiles(String title, IconData icons, Widget widget) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.06,
-      alignment: AlignmentDirectional.topStart,
+      alignment: Alignment.bottomLeft,
 //      height: MediaQuery.of(context).size.height * 0.055,
       child: FlatButton.icon(
           icon: Padding(
@@ -57,7 +57,7 @@ class _DrawerContentsState extends State<DrawerContents> {
                 context, MaterialPageRoute(builder: (context) => widget));
           },
           label: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding:  EdgeInsets.all(16.0),
             child: Text(
               title,
               style: TextStyle(
