@@ -18,11 +18,14 @@ class _HomePageState extends State<HomePage> {
         title: GestureDetector(
             onTap: () => Navigator.push(context,
                 MaterialPageRoute(builder: (context) => ExtraPlusScreen())),
-            child: Image.asset(
-              "assets/flipkartlogo.png",
-              width: 100.0,
-              colorBlendMode: BlendMode.colorBurn,
-            )),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text("Flipkart",style: TextStyle(fontStyle: FontStyle.italic),),
+                Text("Explore Plus+",style: TextStyle(fontStyle: FontStyle.italic,fontSize: 10.0),)
+              ],
+            )
+            ),
         actions: <Widget>[
           IconButton(
             onPressed: () => Navigator.push(context,
@@ -48,6 +51,7 @@ class _HomePageState extends State<HomePage> {
               child: TextFormField(
                 style: TextStyle(fontSize: 15.0),
                 decoration: InputDecoration(
+                  border: InputBorder.none,
                     icon: Icon(
                       Icons.search,
                       color: Colors.black45,
@@ -56,7 +60,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          preferredSize: Size(40.0, 50.0),
+          preferredSize: Size.fromHeight(50.0),
         ),
       ),
       drawer: Drawer(child: DrawerContents()),

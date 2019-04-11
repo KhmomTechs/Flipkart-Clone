@@ -9,9 +9,6 @@ class  MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flipkart',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Colors.white,
-      ),
       home: HomePage(),
     );
   }
